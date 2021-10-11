@@ -84,6 +84,19 @@ public class Level1 extends World
         addObject(smBrickWall8,1141,561);
         SmBrickWall smBrickWall7 = new SmBrickWall();
         addObject(smBrickWall7,1001,456);
+        trapDoor.setLocation(835,660);
+        trapDoor.setLocation(844,573);
+        trapDoor.setLocation(823,572);
+        removeObject(trapDoor);
+        smBrickWall6.setLocation(939,585);
+        smBrickWall8.setLocation(1091,438);
+        removeObject(smBrickWall7);
+        smBrickWall8.setLocation(1092,459);
+        smBrickWall3.setLocation(266,280);
+        bomb3.setLocation(189,239);
+        smBrickWall4.setLocation(480,161);
+        smBrickWall4.setLocation(471,160);
+        bomb3.setLocation(219,232);
     }
     
     private void spawn()
