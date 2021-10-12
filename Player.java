@@ -87,6 +87,10 @@ public class Player extends Actor
         
         if(Greenfoot.isKeyDown("d"))
         {
+            if(!MUSIC.isPlaying())
+            {
+                MUSIC.playLoop();
+            }
             if(isFacingLeft)
             {
                 mirrorImages();
@@ -116,6 +120,7 @@ public class Player extends Actor
     {
         if(Greenfoot.isKeyDown("space") && isOnGround())
         {
+            Greenfoot.playSound("jump.wav");
             yVelocity = JUMP_FORCE;
             isJumping = true;
         }
@@ -158,6 +163,8 @@ public class Player extends Actor
     {
         if(isTouching(Door.class))
         {
+            Greenfoot.playSound("door_open.wav");
+            MUSIC.stop();
             World world = null;
             try
             {
@@ -174,6 +181,7 @@ public class Player extends Actor
         
         if(isTouching(Obstacle.class))
         {
+            Greenfoot.playSound("explosionSmall.wav");
             removeTouching(Obstacle.class);
             getWorld().removeObject(health[healthCount - 1]);
             healthCount--;
@@ -198,6 +206,7 @@ public class Player extends Actor
     {
         if(healthCount == 0)
         {
+            MUSIC.stop();
             Greenfoot.setWorld(new Level1());
         }
     }
