@@ -27,5 +27,12 @@ public abstract class Obstacle extends Actor
         {
             getWorld().removeObject(obstacle);
         }
+        
+        if(obstacle.getX() > getWorld().getHeight() +
+                             obstacle.getImage().getWidth() / 2)
+                             
+        {
+            getWorld().removeObject(obstacle);
+        }
     }
 }
