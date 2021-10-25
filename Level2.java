@@ -45,7 +45,7 @@ public class Level2 extends World
         Door door = new Door();
         addObject(door,1175,41);
         Player player = new Player(SPEED, JUMP_FORCE, GRAVITY, MAX_HEALTH, 
-                                   MAX_POWERUP, NEXT_LEVEL, MUSIC);
+                MAX_POWERUP, NEXT_LEVEL, MUSIC);
         addObject(player,50,759);
 
         Floor floor = new Floor();
@@ -105,6 +105,49 @@ public class Level2 extends World
         smBrickWall4.setLocation(480,161);
         smBrickWall4.setLocation(471,160);
         bomb3.setLocation(219,232);
+        removeObject(brickWall2);
+        removeObject(smBrickWall6);
+        removeObject(smBrickWall7);
+        removeObject(brickWall3);
+        removeObject(smBrickWall5);
+        removeObject(powerup);
+        removeObject(powerup2);
+        removeObject(brickWall);
+        removeObject(door);
+        smBrickWall4.setLocation(530,147);
+        removeObject(trapDoor3);
+        removeObject(smBrickWall7);
+        removeObject(smBrickWall4);
+        removeObject(smBrickWall3);
+        removeObject(bomb3);
+        removeObject(bomb2);
+        removeObject(bomb);
+        BrickWall2 brickWall22 = new BrickWall2();
+        addObject(brickWall22,416,683);
+        BrickWall2 brickWall23 = new BrickWall2();
+        addObject(brickWall23,893,630);
+        BrickWallLong brickWallLong = new BrickWallLong();
+        addObject(brickWallLong,536,491);
+        addObject(smBrickWall3,845,387);
+        BrickWall2 brickWall24 = new BrickWall2();
+        addObject(brickWall24,544,276);
+        removeObject(brickWall24);
+        removeObject(brickWallLong);
+        addObject(smBrickWall4,591,535);
+        removeObject(smBrickWall3);
+        addObject(brickWallLong,503,524);
+        removeObject(smBrickWall4);
+        addObject(smBrickWall3,772,427);
+        addObject(brickWall24,494,338);
+        addObject(smBrickWall4,840,264);
+        addObject(smBrickWall7,1067,210);
+        Door door2 = new Door();
+        addObject(door2,1068,150);
+        removeObject(smBrickWall3);
+        addObject(smBrickWall3,848,429);
+        removeObject(smBrickWall4);
+        addObject(smBrickWall4,894,285);
+        addObject(new TrapDoor(GRAVITY),100, 400);
     }
     
     private void spawn()

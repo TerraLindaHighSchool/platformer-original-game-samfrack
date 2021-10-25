@@ -60,6 +60,7 @@ public class Player extends Actor
         jump();
         fall();
         onCollision();
+        removeOutOfBounds();
         gameOver();
     }
     
@@ -202,6 +203,7 @@ public class Player extends Actor
             WALK_ANIMATION[i].mirrorHorizontally();
         }
     }
+    
     private void gameOver() 
     {
         if(healthCount == 0)
@@ -210,12 +212,28 @@ public class Player extends Actor
             Greenfoot.setWorld(new Level1());
         }
     }
+    
     private boolean isOnGround() 
     {
         Actor ground = getOneObjectAtOffset(0, getImage().getHeight() / 2, Platform.class);
         return ground != null;
     }
     
+    protected void removeOutOfBounds()
+    {
+        
+        if(getX() > getWorld().getWidth())
+                             
+        {
+            setLocation(0, getY());
+        }
+        
+        if(getX() < 0)
+                             
+        {
+            setLocation(40, 760);
+        }
+    }
     
 }
     
