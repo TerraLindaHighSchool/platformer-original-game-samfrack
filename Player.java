@@ -35,7 +35,11 @@ public class Player extends Actor
         MUSIC = music;
         
         healthCount = maxHealth;
-        health = new Health[maxHealth];   
+        health = new Health[maxHealth];
+        
+        powerupCount = maxPowerUp;
+        powerup = new Powerup[maxPowerUp];
+        
         
         STANDING_IMAGE = getImage();
         WALK_ANIMATION = new GreenfootImage[]
@@ -72,6 +76,10 @@ public class Player extends Actor
         world.addObject(health[1], 72, 36);
         health[2] = new Health();
         world.addObject(health[2], 114, 36);
+        
+        powerup[0] = new Powerup();
+        powerup[1] = new Powerup();
+        powerup[2] = new Powerup();
     }
     
     private void walk() 
@@ -178,6 +186,18 @@ public class Player extends Actor
                  System.out.println("Cannot access class constructor");
             }
             Greenfoot.setWorld(world);
+        }
+        
+        if(isTouching(Powerup.class))
+        {
+            removeTouching(Powerup.class); 
+        }
+        
+        if(isTouching(Obstacle.class))
+        {
+            removeTouching(Obstacle.class);
+            getWorld().removeObject(powerup[powerupCount - 1]);
+            powerupCount++;
         }
         
         if(isTouching(Obstacle.class))

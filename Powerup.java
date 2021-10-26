@@ -8,10 +8,24 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Powerup extends HUD
 {
-    /**
-     * Act - do whatever the Powerup wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+   private static int count;
+
+    public static void setCount(int change)
+    {
+        count += change;
+        if(count < 0) count = 0;
+    }
+
+    public static int getCount()
+    {
+        return count;
+    }
+
+    public static void clear()
+    {
+        count = 0;
+    }
+
     public void act()
     {
         // Add your action code here.
