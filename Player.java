@@ -10,6 +10,7 @@ public class Player extends Actor
 {
     private Health[] health;
     private Powerup[] powerup;
+    private int powerupCount;
     private int healthCount;
     private int speed;
     private int walkIndex;
@@ -37,7 +38,6 @@ public class Player extends Actor
         healthCount = maxHealth;
         health = new Health[maxHealth];
         
-        powerupCount = maxPowerUp;
         powerup = new Powerup[maxPowerUp];
         
         
@@ -188,24 +188,34 @@ public class Player extends Actor
             Greenfoot.setWorld(world);
         }
         
-        if(isTouching(Powerup.class))
+        if(isTouching(Collectable.class))
         {
-            removeTouching(Powerup.class); 
+            if(powerupCount < 2)
+            {
+                removeTouching(Collectable.class); 
+                getWorld().addObject(powerup[powerupCount], 
+                                     156 + powerupCount * 42, 36);
+                powerupCount++;
+            }
         }
         
         if(isTouching(Obstacle.class))
         {
             removeTouching(Obstacle.class);
-            getWorld().removeObject(powerup[powerupCount - 1]);
-            powerupCount++;
-        }
-        
-        if(isTouching(Obstacle.class))
-        {
-             Greenfoot.playSound("explosionSmall.wav");
-            removeTouching(Obstacle.class);
-            getWorld().removeObject(health[healthCount - 1]);
-            healthCount--;
+            if(powerupCount > 0)
+            {
+                getWorld().removeObject(powerup[powerupCount - 1]);
+                powerupCount--;
+                System.out.println("Power: " + powerupCount);
+            }
+            else
+            {
+                Greenfoot.playSound("explosionSmall.wav");
+                removeTouching(Obstacle.class);
+                getWorld().removeObject(health[healthCount - 1]);
+                healthCount--;
+                System.out.println("Health: " + healthCount);
+            }
         }
         
         // hit platform but not on ground

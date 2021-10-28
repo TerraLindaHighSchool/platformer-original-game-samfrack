@@ -1,32 +1,28 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Rock here.
+ * Write a description of class RainbowTrapdoor here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Rock extends Obstacle
+public class RainbowTrapdoor extends Obstacle
 {
     private float yVelocity;
     private final float GRAVITY;
     
-    public Rock(float gravity)
+    public RainbowTrapdoor(float gravity)
     {
         GRAVITY = gravity;
     }
     
     public void act()
     {
-       fall();
+        // Add your action code here.
     }
     
-    protected void fall()
+    public void fall()
     {
-        if(!isOnGround())
-        {
-            yVelocity += GRAVITY;
-            setLocation(getX(), getY() +(int) yVelocity);
-        }
+    
     }
 }

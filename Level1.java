@@ -14,7 +14,7 @@ public class Level1 extends World
     private final float JUMP_FORCE = 5.6f;
     private final int MAX_POWERUP = 5;
     private final float FLYING_SPEED = 0.05f;
-    private int MAX_HEALTH = 5;
+    private int MAX_HEALTH = 3;
     private final Class NEXT_LEVEL = Level2.class;
     
     
@@ -45,7 +45,7 @@ public class Level1 extends World
         Door door = new Door();
         addObject(door,1175,41);
         Player player = new Player(SPEED, JUMP_FORCE, GRAVITY, MAX_HEALTH, 
-                                   MAX_POWERUP, NEXT_LEVEL, MUSIC);
+                MAX_POWERUP, NEXT_LEVEL, MUSIC);
         addObject(player,50,759);
 
         Floor floor = new Floor();
@@ -105,6 +105,16 @@ public class Level1 extends World
         smBrickWall4.setLocation(480,161);
         smBrickWall4.setLocation(471,160);
         bomb3.setLocation(219,232);
+        Gem gem = new Gem();
+        addObject(gem,378,624);
+        removeObject(powerup);
+        removeObject(powerup2);
+        Gem gem2 = new Gem();
+        addObject(gem2,1107,198);
+        Gem gem3 = new Gem();
+        addObject(gem3,1170,195);
+        removeObject(gem);
+        addObject(gem,935,538);
     }
     
     private void spawn()

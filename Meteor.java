@@ -1,32 +1,31 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Rock here.
+ * Write a description of class Meteor here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Rock extends Obstacle
+public class Meteor extends Obstacle
 {
     private float yVelocity;
     private final float GRAVITY;
     
-    public Rock(float gravity)
+    public Meteor(float gravity)
     {
         GRAVITY = gravity;
     }
     
     public void act()
     {
-       fall();
+        fall();
+        removeOutOfBounds(this);
     }
     
     protected void fall()
     {
-        if(!isOnGround())
-        {
-            yVelocity += GRAVITY;
-            setLocation(getX(), getY() +(int) yVelocity);
-        }
+        yVelocity += GRAVITY;
+        setLocation(getX(), getY() + (int) yVelocity);
+
     }
 }
