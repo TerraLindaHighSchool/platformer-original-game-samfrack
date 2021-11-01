@@ -206,7 +206,6 @@ public class Player extends Actor
             {
                 getWorld().removeObject(powerup[powerupCount - 1]);
                 powerupCount--;
-                System.out.println("Power: " + powerupCount);
             }
             else
             {
@@ -262,6 +261,11 @@ public class Player extends Actor
                              
         {
             setLocation(40, 760);
+        }
+        
+        if(getY() > getWorld().getHeight())
+        {
+            setLocation(70, 710);
         }
     }
     
