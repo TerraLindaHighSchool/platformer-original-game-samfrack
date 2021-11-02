@@ -105,13 +105,13 @@ public class Level3 extends World
             addObject(new Meteor(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
         }
         
-        if(Math.random() < 0.003)
+        if(Math.random() < 0.0025)
         {
             addObject(new Lander(GRAVITY), Greenfoot.getRandomNumber(1200), 
                       -30);
         }
         
-        if(Math.random() < 0.005)
+        if(Math.random() < 0.004)
         {
             addObject(new Shuttle(FLYING_SPEED),     
                      -30, Greenfoot.getRandomNumber(740) + 30);

@@ -10,12 +10,12 @@ public class Level2 extends World
 {
     private final float GRAVITY = 0.11f;
     private final GreenfootSound MUSIC = new 
-                  GreenfootSound("incompetech_tribal.mp3");
+                  GreenfootSound("highoctane.mp3");
     private final int SPEED = 3;
     private final float JUMP_FORCE = 5.6f;
     private final int MAX_POWERUP = 4;
     private int MAX_HEALTH = 3;
-    private final Class NEXT_LEVEL = WinSplash.class;
+    private final Class NEXT_LEVEL = Level3.class;
     
     
     /**
@@ -160,11 +160,14 @@ public class Level2 extends World
         addObject(gem2,1119,417);
         Gem gem3 = new Gem();
         addObject(gem3,268,639);
+        removeObject(floor);
+        FloorRed floorRed = new FloorRed();
+        addObject(floorRed,598,792);
     }
     
     private void spawn()
     {
-        if(Math.random() < 0.003)
+        if(Math.random() < 0.004)
         {
             addObject(new Rock(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
         }

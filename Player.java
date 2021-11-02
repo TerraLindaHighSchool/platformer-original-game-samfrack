@@ -193,6 +193,7 @@ public class Player extends Actor
             if(powerupCount < 2)
             {
                 removeTouching(Collectable.class); 
+                Greenfoot.playSound("collectable.wav");
                 getWorld().addObject(powerup[powerupCount], 
                                      156 + powerupCount * 42, 36);
                 powerupCount++;
@@ -213,7 +214,6 @@ public class Player extends Actor
                 removeTouching(Obstacle.class);
                 getWorld().removeObject(health[healthCount - 1]);
                 healthCount--;
-                System.out.println("Health: " + healthCount);
             }
         }
         
